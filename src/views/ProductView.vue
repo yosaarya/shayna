@@ -55,8 +55,8 @@
                         <div class="col-lg-6">
                             <div class="product-details text-left">
                                 <div class="pd-title">
-                                    <span>oranges</span>
-                                    <h3>Pure Pineapple</h3>
+                                    <span>{{ productDetails.type }}</span>
+                                    <h3>{{ productDetails.name }}</h3>
                                 </div>
                                 <div class="pd-desc">
                                     <p>
@@ -68,7 +68,7 @@
                                         Commodi ratione distinctio harum voluptatum velit facilis voluptas animi non laudantium, id dolorem atque perferendis enim ducimus? A exercitationem recusandae aliquam quod. Itaque inventore obcaecati, unde quam
                                         impedit praesentium veritatis quis beatae ea atque perferendis voluptates velit architecto?
                                     </p>
-                                    <h4>$495.00</h4>
+                                    <h4>{{ productDetails.price }}</h4>
                                 </div>
                                 <div class="quantity">
                                     <router-link to="/cart" class="primary-btn pd-cart">Add To Cart</router-link>
@@ -94,6 +94,7 @@
   import RelatedProduct from '@/components/RelatedProduct.vue'
   import "vue3-carousel/dist/carousel.css";
   import {Carousel,Slide, } from "vue3-carousel";
+  import axios from "axios";
   
   export default {
     name: 'ProductView',
@@ -114,13 +115,25 @@
             "img/mickey2.jpg",
             "img/mickey3.jpg",
             "img/mickey4.jpg"
-             ]
+             ],
+            productDetails: []
          }
     },
     methods: {
         changeImage(urlImage){
             this.gambar_default = urlImage;
         }
+    },
+    mounted(){
+        axios
+        .get("http://shayna-backend.belajarkoding.com/api/products", {
+            params: {
+                id: this.$route.params.id
+            }
+        })
+        .then(res => (this.productDetails = res.data.data))
+        // eslint-disable-next-line no-console
+        .catch(err => console.log(err));
     }
   };
   </script>

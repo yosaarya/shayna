@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 mt-5" v-if="products.length > 0">
-                    <carousel class="product-slider" :items-to-show="1.2" :item="3" :dots="false" :autoplay="true" :nav="false">
+                    <carousel class="product-slider" :items-to-show="1" :item="3" :dots="false" :autoplay="true" :nav="false">
                         <slide v-for="slide in 3" :key="slide">
                             
                             <div class="product-item" v-for="itemProduct in products" v-bind:key="itemProduct.id">
