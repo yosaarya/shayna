@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="row" banner-info>
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
+                            <!-- <span>Bag,kids</span> -->
                             <h1>Black friday</h1>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -20,12 +20,13 @@
                 </div>
             </div>
             <!-- First Content End -->
-            </slide>
-            <template #addons>
-                 <navigation />
-                 <pagination />
+        </slide>
+        <template #addons>
+            <navigation />
+            <pagination />
              </template>
-          </carousel>
+            </carousel>
+            
     </section>
     <!-- Hero Section End -->
     </div>
